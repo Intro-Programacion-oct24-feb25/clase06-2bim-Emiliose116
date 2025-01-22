@@ -23,7 +23,7 @@ public class Ejemplo051 {
                 System.out.println("Ingrese valor 1:");
                 int valor1 = entrada.nextInt(); // se espera un valor entero 
                 System.out.println("Ingrese valor 2:");
-                int valor2 = entrada.nextInt(); // se espera un valor entero // 0
+                int valor2 = entrada.nextInt(); //se espera un valor entero // 0
                 int resultado = valor1 / valor2;
 
                 System.out.printf("Resultado %d\n", resultado);
