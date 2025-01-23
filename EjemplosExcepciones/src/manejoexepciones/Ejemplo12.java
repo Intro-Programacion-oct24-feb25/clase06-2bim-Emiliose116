@@ -14,41 +14,52 @@ import java.util.Scanner;
  */
 public class Ejemplo12 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Ingrese cuantas operaciones quiere realizar");
         int valor = entrada.nextInt();
         int[] resultados = new int[valor];
+        int i = 0;
+        int resultado = 0;
 
-        for (int i = 0; i < resultados.length; i++) {
+        while (i < resultados.length) {
             try {
                 System.out.println("Ingrese valor 1:");
-                int valor1 = entrada.nextInt(); // se espera un valor entero
+                int valor1 = entrada.nextInt();
                 System.out.println("Ingrese valor 2:");
-                int valor2 = entrada.nextInt(); // se espera un valor entero
-                int resultado = valor1 / valor2;
-                double resultado2 = (double) resultado;
-                System.out.printf("Resultado %.2f", resultado2);
+                int valor2 = entrada.nextInt();
+                resultado = valor1 / valor2;
+                resultados[i] = resultado;
+                i = i + 1;
+
             } catch (InputMismatchException inputMismatchException) {
 
                 System.out.printf("Existe un error de tipo %s\n",
                         inputMismatchException);
-            } catch (ArithmeticException arithmeticException) {
 
+            } catch (ArithmeticException arithmeticException) {
                 System.out.println("Lo sentimos hay un error");
                 System.out.printf("De tipo %s\n", arithmeticException);
 
-            } catch (IllegalFormatConversionException i) {
+            } catch (IllegalFormatConversionException illegalFormatConversionException) {
                 System.out.println("Lo sentimos hay un error");
-                System.out.printf("De tipo %s\n", i);
+                System.out.printf("De tipo %s\n", illegalFormatConversionException);
+
+            } catch (Exception e) {
+                System.out.printf("Error:\n%s\n", e);
+
             }
 
         }
-    }
 
-    /*Realizar un proceso repetitivo que permita realizar la división de 
+        for (i = 0; i < resultados.length; i++) {
+            System.out.printf("%d\n", resultados[i]);
+        }
+
+        /*Realizar un proceso repetitivo que permita realizar la división de 
         números ingresados por teclado; el resultado de cada división debe ir 
         almacenandose en cada posición del arreglo. Considerar las excepciones
         posibles*/
-}
+    }
 
+}
