@@ -24,9 +24,9 @@ public class Ejemplo12 {
 
         while (i < resultados.length) {
             try {
-                System.out.println("Ingrese valor 1:");
+                System.out.printf("Ingrese valor 1 de la operacion #%d:", i+1);
                 int valor1 = entrada.nextInt();
-                System.out.println("Ingrese valor 2:");
+                System.out.printf("Ingrese valor de la operacion #%d:", i+1);
                 int valor2 = entrada.nextInt();
                 resultado = valor1 / valor2;
                 resultados[i] = resultado;
@@ -36,14 +36,17 @@ public class Ejemplo12 {
 
                 System.out.printf("Existe un error de tipo %s\n",
                         inputMismatchException);
+                entrada.nextLine();
 
             } catch (ArithmeticException arithmeticException) {
                 System.out.println("Lo sentimos hay un error");
                 System.out.printf("De tipo %s\n", arithmeticException);
 
-            } catch (IllegalFormatConversionException illegalFormatConversionException) {
+            } catch (IllegalFormatConversionException 
+                    illegalFormatConversionException) {
                 System.out.println("Lo sentimos hay un error");
-                System.out.printf("De tipo %s\n", illegalFormatConversionException);
+                System.out.printf("De tipo %s\n"
+                        , illegalFormatConversionException);
 
             } catch (Exception e) {
                 System.out.printf("Error:\n%s\n", e);
